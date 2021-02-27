@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="display-4">User Details</h1>
+
+<h4 class='inline-block'>User Name</h4>
+<div class='inline-block'>{{user.username}}</div><br>
+
+<h4 class='inline-block'>First Name</h4>
+<div class='inline-block'>{{user.first_name}}</div><br>
+
+<h4 class='inline-block'>Last Name</h4>
+<div class='inline-block'>{{user.last_name}}</div><br>
+
+<h4 class='inline-block'>email</h4>
+<div class='inline-block'>{{user.email}}</div><br>
+
+{% if viewing_self %}
+
+    <a href='/user/{{user.username}}/delete'><div class='btn-danger'>Delete</div></a>
+
+    {% for post in feedback %}
+
+        <div>title</div><div><a href='/feedback/{{post.id}}'>{{post.title}}</a></div>
+
+        <div>content</div><div>{{post.content}}</div>
+
+        <a href='/feedback/{{post.id}}/delete' class='btn-danger'>Delete</a>
+
+    {% endfor %}
+
+
+{% endif %}
+
+<!-- <div class='btn btn-success'>test</div> -->
+
+{% endblock %}
